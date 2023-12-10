@@ -1,0 +1,1 @@
+data set: https://huggingface.co/datasets/huggan/anime-faces/tree/main

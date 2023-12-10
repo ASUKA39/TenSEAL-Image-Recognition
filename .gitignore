@@ -1,3 +1,4 @@
-image/data/*
+image/data/*.png
+image/data/data/*.png
 *.db
 *.zip
