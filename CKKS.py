@@ -211,7 +211,7 @@ if __name__ == "__main__":
     save_path = "./CKKS_decrypted.png"
 
     time_start = time.time()
-    batch_generate_encrypted_image(data_path, db_path, start_number, end_number + 1, context_1)
+    batch_generate_encrypted_image(data_path, db_path, start_number, end_number + 1, context_public)
     time_end = time.time()
     print(" [+] Encrypt 1000 images cost: {:.2f}s\n".format(time_end - time_start))
 
