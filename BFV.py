@@ -182,7 +182,7 @@ def cal_all_similarity_from_db(db_path, context, save_path, target_r, target_g, 
 
     most_similarity_index = similarity_list.index(most_similarity)
     most_similarity_id = id_list[most_similarity_index]
-    print(" [+] Most similarity id: ", most_similarity_id)
+    print("\n [+] Most similarity id: ", most_similarity_id)
     print(" [+] Most similarity: ", most_similarity)
     # 保存最相似的图像
     id, encrypted_r_blob, encrypted_g_blob, encrypted_b_blob = load_from_db(db_path, most_similarity_id)
@@ -194,7 +194,6 @@ def cal_all_similarity_from_db(db_path, context, save_path, target_r, target_g, 
 if __name__ == "__main__":
     print("BFV start...")
     context_1 = ts.context(ts.SCHEME_TYPE.BFV, poly_modulus_degree=8192, plain_modulus=1032193)
-    context_1.global_scale = 2**20
     context_1.generate_galois_keys()
 
     image_path = "./image/data/20769.png"

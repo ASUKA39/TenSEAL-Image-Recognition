@@ -37,9 +37,15 @@ I use the BFV/CKKS scheme to encrypt the three channels of 1001 images and calcu
 |-|Original Image|BFV Decrypted Image|CKKS Decrypted Image|
 |:---:|:---:|:---:|:---:|
 |Image|![](./asset/20769.png)|![](./asset/BFV_decrypted.png)|![](./asset/CKKS_decrypted.png)|
-|Cosine Similarity|-|[1.0, 1.0, 1.0]|[1.000, 0.999, 0.990]|
+|plain_modulus/global_scale|-|1032193|2^40|
+|Cosine Similarity|-|[1.0, 1.0, 1.0]|[1.000, 0.999, 0.992]|
+|Time Cost encryption|-|165.19 s|115.03 s|
+|Time Cost calculation|-|320.23 s|98.17 s|
 
-> The decrypted image is not exactly the same as the original image because the CKKS scheme use floating-point numbers to represent the encrypted data, which will cause some precision loss. But the decrypted image is still very similar to the original image.
+- The decrypted image is not exactly the same as the original image because the CKKS scheme use floating-point numbers to represent the encrypted data, which will cause some precision loss. But the decrypted image is still very similar to the original image.
 
 Running time of the BFV/CKKS scheme:
+
 ![](./asset/result.png)
+
+- As you can see, the CKKS scheme offers faster encryption and homomorphic operations compared to the BFV scheme. However, the CKKS scheme incurs some precision loss due to the use of floating-point numbers, while the BFV scheme can achieve accurate integer computations.
