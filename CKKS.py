@@ -129,13 +129,13 @@ def decrypt_and_cal_similarity(numerator_r, numerator_g, numerator_b, denominato
     
     return similarity
 
-def batch_generate_encrypted_image(data_path, db_path, start_number, end_number):
+def batch_generate_encrypted_image(data_path, db_path, start_number, end_number, context):
     for i in range(start_number, end_number):
         image_path = data_path + str(i) + ".png"
 
-        context = ts.context(ts.SCHEME_TYPE.CKKS, poly_modulus_degree=8192, coeff_mod_bit_sizes=[60, 40, 40, 60])
-        context.global_scale = 2**40
-        context.generate_galois_keys()
+        # context = ts.context(ts.SCHEME_TYPE.CKKS, poly_modulus_degree=8192, coeff_mod_bit_sizes=[60, 40, 40, 60])
+        # context.global_scale = 2**40
+        # context.generate_galois_keys()
 
         encrypted_r, encrypted_g, encrypted_b = encrypt(image_path, context)
         save_to_db(encrypted_r, encrypted_g, encrypted_b, db_path, i)
@@ -211,7 +211,7 @@ if __name__ == "__main__":
     save_path = "./CKKS_decrypted.png"
 
     time_start = time.time()
-    batch_generate_encrypted_image(data_path, db_path, start_number, end_number + 1)
+    batch_generate_encrypted_image(data_path, db_path, start_number, end_number + 1, context_1)
     time_end = time.time()
     print(" [+] Encrypt 1000 images cost: {:.2f}s\n".format(time_end - time_start))
 
