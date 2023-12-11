@@ -192,7 +192,7 @@ def cal_all_similarity_from_db(db_path, context, save_path, target_r, target_g, 
     return
 
 if __name__ == "__main__":
-    print("BVF start...")
+    print("BFV start...")
     context_1 = ts.context(ts.SCHEME_TYPE.BFV, poly_modulus_degree=8192, plain_modulus=1032193)
     context_1.global_scale = 2**20
     context_1.generate_galois_keys()
