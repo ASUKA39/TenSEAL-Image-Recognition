@@ -2,7 +2,16 @@
 
 ## Introduction
 
-This is a simple project that uses TenSEAL for homomorphic encryption and decryption, as well as similarity calculation of images in encrypted form. I encrypt the three channels of 1001 images using the BFV/CKKS scheme with different contexts for each channel. One of the images is encrypted using the user's context. Then, I serialize the BFV/CKKS vector objects and save them in SQLite. After that, I deserialize the serialized objects and calculate the squared cosine similarity numerator and denominator between the BFV/CKKS vector of the target image and these vectors in encrypted form. I return the numerator and denominator of all squared cosine similarities in encrypted form and decrypt them using the user's context. Then, I calculate the squared cosine similarity for each channel separately and find the ID of the most similar image, which is returned to the database. Finally, the database retrieves the encrypted image vector corresponding to the ID and returns it to the user, who can decrypt and reconstruct the image using their private key.
+This is a simple project that uses TenSEAL for homomorphic encryption and decryption, as well as similarity calculation of images in encrypted form.
+
+Here is the workflow of this project: 
+1. The encrypted images generator encrypt the three channels of 1001 images using the BFV/CKKS scheme with different contexts for each channel. One of the images is encrypted using the client's context. 
+2. Then, client retrieve all the data from SQLite and serialize the BFV/CKKS vector objects and save them in SQLite. 
+3. After that, server deserialize the serialized objects and calculate the squared cosine similarity numerator and denominator between the BFV/CKKS vector of the target image and these vectors in encrypted form. 
+4. Server return the numerator and denominator of all squared cosine similarities in encrypted form and client decrypt them using the client's context. 
+5. Then, client calculate the squared cosine similarity for each channel separately and find the ID of the most similar image, which is returned to the database. 
+6. Finally, the database retrieves the encrypted image vector corresponding to the ID and returns it to the client, who can decrypt and reconstruct the image using their private key.
+- **Attention:** The "client" and "server" mentioned above are actually the same machine in my implementation, but they can be different machines in practice.
 
 ## Platform and Environment
 
