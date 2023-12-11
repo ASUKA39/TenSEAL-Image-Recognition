@@ -40,7 +40,7 @@ I use the BFV/CKKS scheme to encrypt the three channels of 1001 images and calcu
 |:---:|:---:|:---:|:---:|
 |Image|![](./asset/20769.png)|![](./asset/BFV_decrypted.png)|![](./asset/CKKS_decrypted.png)|
 |plain_modulus/global_scale|-|1032193|2^40|
-|Cosine Similarity|-|[1.0, 1.0, 1.0]|[1.000, 0.998, 0.984]|
+|Cosine Similarity|-|[1.0, 1.0, 1.0]|[1.00, 0.99, 0.98]|
 |Time Cost encryption|-|34.46 s|19.12 s|
 |Time Cost calculation|-|227.82 s|97.96 s|
 
