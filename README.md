@@ -18,7 +18,7 @@ I used anime-faces dataset from huggingface. You can download the dataset from [
 
 Run the following command to compare the time cost of the BFV/CKKS scheme.
 ```bash
-python3 BKV.py && python3 CKKS.py
+python3 BFV.py && python3 CKKS.py
 ```
 
 ## Results
